@@ -5,7 +5,7 @@
 
 ### OS
 
-- [Operating Systems : Three Easy Pieces](OS/Operating Systems : Three Easy Pieces)
+- [Operating Systems : Three Easy Pieces](https://github.com/zangsu/study-note/tree/main/OS/Operating%20Systems%20:%20Three%20Easy%20Pieces)
 
 ## BackEnd
 
