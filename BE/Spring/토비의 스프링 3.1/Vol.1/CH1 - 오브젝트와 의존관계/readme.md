@@ -34,7 +34,7 @@
 
 ## 1.8 XML을 이용한 설정
 
-[1.8 XML을 이용한 설정]()
+[1.8 XML을 이용한 설정](https://github.com/zangsu/study-note/blob/main/BE/Spring/%ED%86%A0%EB%B9%84%EC%9D%98%20%EC%8A%A4%ED%94%84%EB%A7%81%203.1/Vol.1/CH1%20-%20%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8%EC%99%80%20%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84/1.8%20XML%EC%9D%84%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%84%A4%EC%A0%95.md)
 
 ## 1.9 정리
 
