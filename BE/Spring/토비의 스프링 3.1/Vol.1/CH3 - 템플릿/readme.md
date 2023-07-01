@@ -13,3 +13,6 @@ OCP원칙은 코드의 특정 부분은 변경을 통해 기능을 확장하려 
 ## 3.2 변하는 것과 변하지 않는 것
 
 [3.2 변하는 것과 변하지 않는 것](https://github.com/zangsu/study-note/blob/main/BE/Spring/%ED%86%A0%EB%B9%84%EC%9D%98%20%EC%8A%A4%ED%94%84%EB%A7%81%203.1/Vol.1/CH3%20-%20%ED%85%9C%ED%94%8C%EB%A6%BF/3.2%20%EB%B3%80%ED%95%98%EB%8A%94%20%EA%B2%83%EA%B3%BC%20%EB%B3%80%ED%95%98%EC%A7%80%20%EC%95%8A%EB%8A%94%20%EA%B2%83.md)
+
+## 3.3 JDBC 전략 패턴의 최적화 
+[3.3 JDBC 전략 패턴의 최적화](https://github.com/zangsu/study-note/blob/main/BE/Spring/%ED%86%A0%EB%B9%84%EC%9D%98%20%EC%8A%A4%ED%94%84%EB%A7%81%203.1/Vol.1/CH3%20-%20%ED%85%9C%ED%94%8C%EB%A6%BF/3.3%20JDBC%20%EC%A0%84%EB%9E%B5%20%ED%8C%A8%ED%84%B4%EC%9D%98%20%EC%B5%9C%EC%A0%81%ED%99%94.md)
