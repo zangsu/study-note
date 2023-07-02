@@ -1,12 +1,12 @@
 package org.example;
 
-import org.example.user.dao.ConnectionMaker;
 import org.example.user.dao.DaoFactory;
-import org.example.user.dao.SimpleConnectionMaker;
 import org.example.user.dao.UserDAO;
 import org.example.user.domain.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.GenericApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
 
 import java.sql.SQLException;
 
@@ -40,7 +40,7 @@ public class UserDAOTest {
         System.out.println(user2.getId() + " 조회 성공");
     }
 
-    public static  void newDaoEqualsTest(){
+   /* public static  void newDaoEqualsTest(){
 
         DaoFactory factory = new DaoFactory();
         UserDAO dao1 = factory.userDAO();
@@ -59,5 +59,5 @@ public class UserDAOTest {
 
         System.out.println(dao1);
         System.out.println(dao2);
-    }
+    }*/
 }
