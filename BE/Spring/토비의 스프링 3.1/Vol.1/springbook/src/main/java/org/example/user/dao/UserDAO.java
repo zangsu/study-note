@@ -7,6 +7,8 @@ import java.sql.*;
 public class UserDAO {
 
     private ConnectionMaker simpleConnectionMaker;
+    private Connection c;
+    private User user;
 
     public UserDAO(ConnectionMaker connectionMaker) {
 
@@ -31,7 +33,7 @@ public class UserDAO {
 
     public User get(String id) throws ClassNotFoundException, SQLException {
 
-        Connection c = simpleConnectionMaker.makeConnection();
+        this.c = simpleConnectionMaker.makeConnection();
 
         PreparedStatement ps = c.prepareStatement(
                 "select * from users where id=?");
@@ -39,10 +41,10 @@ public class UserDAO {
 
         ResultSet rs = ps.executeQuery();
         rs.next();
-        User user = new User();
-        user.setId(rs.getString("id"));
-        user.setName(rs.getString("name"));
-        user.setPassword(rs.getString("password"));
+        this.user = new User();
+        this.user.setId(rs.getString(   "id"));
+        this.user.setName(rs.getString("name"));
+        this.user.setPassword(rs.getString("password"));
 
         rs.close();
         ps.close();

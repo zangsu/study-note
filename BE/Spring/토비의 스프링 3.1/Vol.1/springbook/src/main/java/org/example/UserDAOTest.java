@@ -12,8 +12,16 @@ import java.sql.SQLException;
 
 public class UserDAOTest {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
+        //newDaoEqualsTest();
+        //getDaoEqualsTest();
+        daoLogicTest();
 
+
+    }
+
+    private static void daoLogicTest() throws ClassNotFoundException, SQLException {
         ApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class);
+
         UserDAO dao = context.getBean("userDAO", UserDAO.class);
 
         User user = new User();
@@ -30,5 +38,26 @@ public class UserDAOTest {
         System.out.println(user2.getPassword());
 
         System.out.println(user2.getId() + " 조회 성공");
+    }
+
+    public static  void newDaoEqualsTest(){
+
+        DaoFactory factory = new DaoFactory();
+        UserDAO dao1 = factory.userDAO();
+        UserDAO dao2 = factory.userDAO();
+
+        System.out.println(dao1);
+        System.out.println(dao2);
+
+    }
+
+    public static void getDaoEqualsTest(){
+        ApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class);
+
+        UserDAO dao1 = context.getBean("userDAO", UserDAO.class);
+        UserDAO dao2 = context.getBean("userDAO", UserDAO.class);
+
+        System.out.println(dao1);
+        System.out.println(dao2);
     }
 }
