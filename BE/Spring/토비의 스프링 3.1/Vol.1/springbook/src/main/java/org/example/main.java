@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.user.dao.ConnectionMaker;
+import org.example.user.dao.SimpleConnectionMaker;
 import org.example.user.dao.UserDAO;
 import org.example.user.domain.User;
 
@@ -7,7 +9,9 @@ import java.sql.SQLException;
 
 public class main {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        UserDAO dao = new UserDAO();
+
+        ConnectionMaker connectionMaker = new SimpleConnectionMaker();
+        UserDAO dao = new UserDAO(connectionMaker);
 
         User user = new User();
         user.setId("toby");
