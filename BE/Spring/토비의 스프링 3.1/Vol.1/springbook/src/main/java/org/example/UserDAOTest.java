@@ -1,17 +1,16 @@
 package org.example;
 
 import org.example.user.dao.ConnectionMaker;
+import org.example.user.dao.DaoFactory;
 import org.example.user.dao.SimpleConnectionMaker;
 import org.example.user.dao.UserDAO;
 import org.example.user.domain.User;
 
 import java.sql.SQLException;
 
-public class main {
+public class UserDAOTest {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-
-        ConnectionMaker connectionMaker = new SimpleConnectionMaker();
-        UserDAO dao = new UserDAO(connectionMaker);
+        UserDAO dao = new DaoFactory().userDAO();
 
         User user = new User();
         user.setId("toby");
