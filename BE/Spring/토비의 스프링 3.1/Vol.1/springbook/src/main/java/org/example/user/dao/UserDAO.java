@@ -14,7 +14,6 @@ public class UserDAO {
     private User user;
 
     public UserDAO(DataSource dataSource) {
-
         this.dataSource = dataSource;
     }
 

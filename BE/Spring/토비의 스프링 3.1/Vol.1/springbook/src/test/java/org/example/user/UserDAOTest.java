@@ -1,26 +1,17 @@
-package org.example;
+package org.example.user;
 
-import org.example.user.dao.DaoFactory;
 import org.example.user.dao.UserDAO;
 import org.example.user.domain.User;
+import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 import java.sql.SQLException;
 
 public class UserDAOTest {
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        //newDaoEqualsTest();
-        //getDaoEqualsTest();
-        daoLogicTest();
 
-
-    }
-
-    private static void daoLogicTest() throws ClassNotFoundException, SQLException {
-        //ApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class);
+    @Test
+    public void addAndGet() throws SQLException {
         ApplicationContext context = new GenericXmlApplicationContext("applicationContext.xml");
         UserDAO dao = context.getBean("userDAO", UserDAO.class);
 
