@@ -20,8 +20,8 @@ public class UserDAOTest {
     }
 
     private static void daoLogicTest() throws ClassNotFoundException, SQLException {
-        ApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class);
-
+        //ApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class);
+        ApplicationContext context = new GenericXmlApplicationContext("applicationContext.xml");
         UserDAO dao = context.getBean("userDAO", UserDAO.class);
 
         User user = new User();

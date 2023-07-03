@@ -3,27 +3,28 @@ package org.example.user.dao;
 import lombok.NoArgsConstructor;
 import org.example.user.domain.User;
 
+import javax.sql.DataSource;
 import java.sql.*;
 
 @NoArgsConstructor
 public class UserDAO {
 
-    private ConnectionMaker connectionMaker;
+    private DataSource dataSource;
     private Connection c;
     private User user;
 
-    public UserDAO(ConnectionMaker connectionMaker) {
+    public UserDAO(DataSource dataSource) {
 
-        this.connectionMaker = connectionMaker;
+        this.dataSource = dataSource;
     }
 
-    public void setConnectionMaker(ConnectionMaker connectionMaker){
-        this.connectionMaker = connectionMaker;
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
     }
 
-    public void add(User user) throws ClassNotFoundException, SQLException {
+    public void add(User user) throws SQLException {
 
-        Connection c = connectionMaker.makeConnection();
+        Connection c = dataSource.getConnection();
 
         PreparedStatement ps = c.prepareStatement(
                 "insert into users(id, name, password) values (?,?,?)");
@@ -37,9 +38,9 @@ public class UserDAO {
         c.close();
     }
 
-    public User get(String id) throws ClassNotFoundException, SQLException {
+    public User get(String id) throws SQLException {
 
-        this.c = connectionMaker.makeConnection();
+        Connection c = dataSource.getConnection();
 
         PreparedStatement ps = c.prepareStatement(
                 "select * from users where id=?");
