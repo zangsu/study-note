@@ -10,7 +10,12 @@ repositories {
 }
 
 dependencies {
+
+    implementation 'org.springframework:spring-context:5.3.22'
+    implementation 'org.springframework:spring-jdbc:5.3.22'
+
     implementation('org.projectlombok:lombok:1.18.26')
+    implementation('mysql:mysql-connector-java:8.0.33')
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
