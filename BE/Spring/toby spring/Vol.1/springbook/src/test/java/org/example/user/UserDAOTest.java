@@ -2,9 +2,11 @@ package org.example.user;
 
 import org.example.user.dao.UserDAO;
 import org.example.user.domain.User;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
+import org.springframework.dao.EmptyResultDataAccessException;
 
 
 import java.sql.SQLException;
@@ -17,21 +19,25 @@ public class UserDAOTest {
         ApplicationContext context = new GenericXmlApplicationContext("applicationContext.xml");
         UserDAO dao = context.getBean("userDAO", UserDAO.class);
 
+        User user1 = new User("toby","이일민","toby");
+        User user2 = new User("holyeye", "김영한", "holyeye");
         dao.deleteAll();
         assertThat(dao.getCount()).isEqualTo(0);
 
-        User user = new User();
-        user.setId("toby");
-        user.setName("이일민");
-        user.setPassword("toby");
 
-        dao.add(user);
-        assertThat(dao.getCount()).isEqualTo(1);
+        dao.add(user1);
+        dao.add(user2);
+        assertThat(dao.getCount()).isEqualTo(2);
 
-        User user2 = dao.get(user.getId());
+        User userGet1 = dao.get(user1.getId());
 
-        assertThat(user2.getName()).isEqualTo(user.getName());
-        assertThat(user2.getPassword()).isEqualTo(user.getPassword());
+        assertThat(user1.getName()).isEqualTo(userGet1.getName());
+        assertThat(user1.getPassword()).isEqualTo(userGet1.getPassword());
+
+        User userGet2 = dao.get(user2.getId());
+
+        assertThat(user2.getName()).isEqualTo(userGet2.getName());
+        assertThat(user2.getPassword()).isEqualTo(userGet2.getPassword());
     }
 
     @Test
@@ -54,5 +60,22 @@ public class UserDAOTest {
 
         dao.add(user3);
         assertThat(dao.getCount()).isEqualTo(3);
+    }
+
+    @Test
+    public void getUserFailure() throws SQLException {
+        ApplicationContext context = new GenericXmlApplicationContext("applicationContext.xml");
+        UserDAO dao = context.getBean("userDAO", UserDAO.class);
+
+        dao.deleteAll();
+        assertThat(dao.getCount()).isEqualTo(0);
+
+        Assertions.assertThrows(
+                EmptyResultDataAccessException.class,
+                ()->{
+                    dao.get("unknownId");
+                }
+        );
+
     }
 }
