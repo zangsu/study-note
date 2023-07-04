@@ -24,7 +24,7 @@ import java.sql.SQLException;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(locations = "/applicationContext.xml")
+@ContextConfiguration(locations = "/test-applicationContext.xml")
 @DirtiesContext
 public class UserDAOTest {
     @Autowired
@@ -36,10 +36,6 @@ public class UserDAOTest {
 
     @BeforeEach
     public void setUp(){
-        //this.dao = context.getBean("userDAO", UserDAO.class);
-        DataSource dataSource = new SingleConnectionDataSource(
-                "jdbc:mysql://localhost/testDB", "root", "root", true);
-        dao.setDataSource(dataSource);
 
         this.user1 = new User("toby", "이일민", "toby");
         this.user2 = new User("holyeye", "김영한", "holyeye");
