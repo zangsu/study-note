@@ -10,7 +10,12 @@
         <property name="password" value="root"/>
     </bean>
 
+    <bean id="jdbcContext" class="org.example.user.dao.JdbcContext">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
     <bean id="userDAO" class="org.example.user.dao.UserDAO">
         <property name="dataSource" ref="dataSource"/>
+        <property name="jdbcContext" ref="jdbcContext"/>
     </bean>
 </beans>
