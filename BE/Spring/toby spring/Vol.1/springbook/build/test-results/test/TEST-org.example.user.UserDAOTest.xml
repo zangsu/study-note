@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.example.user.UserDAOTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-07-04T04:46:35" hostname="DESKTOP-GHLVEEV" time="0.392">
+<testsuite name="org.example.user.UserDAOTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-07-04T04:59:13" hostname="DESKTOP-GHLVEEV" time="0.382">
   <properties/>
-  <testcase name="getUserFailure()" classname="org.example.user.UserDAOTest" time="0.392"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="getUserFailure()" classname="org.example.user.UserDAOTest" time="0.253"/>
+  <testcase name="addAndGet()" classname="org.example.user.UserDAOTest" time="0.068"/>
+  <testcase name="count()" classname="org.example.user.UserDAOTest" time="0.059"/>
+  <system-out><![CDATA[org.springframework.context.support.GenericApplicationContext@65a15628, started on Tue Jul 04 13:59:13 GMT+09:00 2023
+org.example.user.UserDAOTest@2f2bf0e2
+org.springframework.context.support.GenericApplicationContext@65a15628, started on Tue Jul 04 13:59:13 GMT+09:00 2023
+org.example.user.UserDAOTest@369c9bb
+org.springframework.context.support.GenericApplicationContext@65a15628, started on Tue Jul 04 13:59:13 GMT+09:00 2023
+org.example.user.UserDAOTest@63fdffcd
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
