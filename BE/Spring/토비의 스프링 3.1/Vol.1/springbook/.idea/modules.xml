@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/springbook.iml" filepath="$PROJECT_DIR$/.idea/modules/springbook.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/springbook.main.iml" filepath="$PROJECT_DIR$/.idea/modules/springbook.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/springbook.test.iml" filepath="$PROJECT_DIR$/.idea/modules/springbook.test.iml" />
     </modules>
   </component>
 </project>
