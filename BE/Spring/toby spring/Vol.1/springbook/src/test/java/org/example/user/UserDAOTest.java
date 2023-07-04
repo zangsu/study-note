@@ -24,9 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ContextConfiguration(locations = "/applicationContext.xml")
 public class UserDAOTest {
     @Autowired
-    private ApplicationContext context;
-
-    private UserDAO dao;
+    UserDAO dao;
 
     private User user1;
     private User user2;
@@ -34,12 +32,7 @@ public class UserDAOTest {
 
     @BeforeEach
     public void setUp(){
-
-        //테스트 클래스가 매 순간 생성되며, 이 때 항상 컨텍스트는 공유한다.
-        System.out.println(this.context); //같은 객체임을 확인
-        System.out.println(this); //다른 객체임을 확인
-
-        this.dao = context.getBean("userDAO", UserDAO.class);
+        //this.dao = context.getBean("userDAO", UserDAO.class);
 
         this.user1 = new User("toby", "이일민", "toby");
         this.user2 = new User("holyeye", "김영한", "holyeye");
