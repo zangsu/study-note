@@ -40,6 +40,7 @@ public class UserDAOTest {
         this.user1 = new User("toby", "이일민", "toby");
         this.user2 = new User("holyeye", "김영한", "holyeye");
         this.user3 = new User("zangsu", "장혁수", "zangsu");
+
     }
     @Test
     public void addAndGet() throws SQLException {
@@ -88,6 +89,5 @@ public class UserDAOTest {
                     dao.get("unknownId");
                 }
         );
-
     }
 }

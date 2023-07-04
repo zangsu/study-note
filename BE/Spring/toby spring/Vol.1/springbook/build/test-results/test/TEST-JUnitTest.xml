@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="JUnitTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-07-04T05:26:39" hostname="DESKTOP-GHLVEEV" time="0.05">
-  <properties/>
-  <testcase name="test1()" classname="JUnitTest" time="0.047"/>
-  <testcase name="test2()" classname="JUnitTest" time="0.001"/>
-  <testcase name="test3()" classname="JUnitTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
