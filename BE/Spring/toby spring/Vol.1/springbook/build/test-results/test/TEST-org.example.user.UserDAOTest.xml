@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.example.user.UserDAOTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-07-04T04:41:40" hostname="DESKTOP-GHLVEEV" time="0.393">
+<testsuite name="org.example.user.UserDAOTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-07-04T04:46:35" hostname="DESKTOP-GHLVEEV" time="0.392">
   <properties/>
-  <testcase name="getUserFailure()" classname="org.example.user.UserDAOTest" time="0.393"/>
+  <testcase name="getUserFailure()" classname="org.example.user.UserDAOTest" time="0.392"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
