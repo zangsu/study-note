@@ -6,39 +6,33 @@ import java.io.IOException;
 
 public class Calculator {
     public int calcSum(final String filepath) throws IOException {
-        return fileReadTemplate(filepath, new BufferedReaderCallback() {
+        return lineReadTemplate(filepath, 0, new LineCallback() {
             @Override
-            public Integer doSomethingWithReader(BufferedReader br) throws IOException {
-                String line;
-                Integer result = 0;
-                while ((line = br.readLine()) != null) {
-                    result += Integer.valueOf(line);
-                }
-                return result;
+            public Integer doSomethingWithLine(String line, Integer value) {
+                return value + Integer.valueOf(line);
             }
         });
     }
 
     public int calcMultiple(final String filepath) throws IOException {
-        return fileReadTemplate(filepath, new BufferedReaderCallback() {
+        return lineReadTemplate(filepath, 1, new LineCallback() {
             @Override
-            public Integer doSomethingWithReader(BufferedReader br) throws IOException {
-                String line;
-                int result = 1;
-                while((line = br.readLine()) != null){
-                    result *= Integer.valueOf(line);
-                }
-
-                return result;
+            public Integer doSomethingWithLine(String line, Integer value) {
+                return value * Integer.valueOf(line);
             }
         });
     }
 
-    public Integer fileReadTemplate(String filePath, BufferedReaderCallback callback) throws IOException {
+    public Integer lineReadTemplate(String filePath, Integer init, LineCallback callback) throws IOException {
         BufferedReader br = null;
         try {
             br = new BufferedReader(new FileReader(filePath));
-            return callback.doSomethingWithReader(br);
+            String line;
+            Integer result = init;
+            while((line = br.readLine()) != null){
+                result = callback.doSomethingWithLine(line, result);
+            }
+            return result;
         }catch (IOException e){
             System.out.println(e.getMessage());
             throw e;

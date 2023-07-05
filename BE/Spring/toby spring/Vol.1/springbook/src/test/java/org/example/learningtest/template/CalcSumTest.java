@@ -1,12 +1,9 @@
 package org.example.learningtest.template;
 
 import org.assertj.core.api.Assertions;
-import org.example.user.template.BufferedReaderCallback;
 import org.example.user.template.Calculator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.io.BufferedReader;
 import java.io.IOException;
 
 
