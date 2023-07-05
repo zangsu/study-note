@@ -30,4 +30,10 @@ public class CalcSumTest {
         int multiple = calculator.calcMultiple(path);
         Assertions.assertThat(multiple).isEqualTo(24);
     }
+
+    @Test
+    public void concatenateStrings() throws IOException {
+        Assertions.assertThat(calculator.concatenate(this.path)).isEqualTo("1234");
+
+    }
 }
