@@ -3,6 +3,8 @@ package org.example.user.dao;
 import lombok.NoArgsConstructor;
 import org.example.user.domain.User;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -11,7 +13,7 @@ import java.sql.*;
 public class UserDAO {
 
     private DataSource dataSource;
-    private JdbcContext jdbcContext;
+    private JdbcTemplate jdbcTemplate;
 
     public UserDAO(DataSource dataSource) {
         this.dataSource = dataSource;
@@ -19,17 +21,17 @@ public class UserDAO {
 
     public void setDataSource(DataSource dataSource) {
 
-        this.jdbcContext = new JdbcContext();
-        this.jdbcContext.setDataSource(dataSource);
+        this.jdbcTemplate = new JdbcTemplate();
+        this.jdbcTemplate.setDataSource(dataSource);
         this.dataSource = dataSource;
     }
 
-    public void setJdbcContext(JdbcContext jdbcContext) {
-        this.jdbcContext = jdbcContext;
+    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 
     public void add(final User user) throws SQLException {
-        this.jdbcContext.executeSql("insert into users(id, name, password) values (?,?,?)",
+        this.jdbcTemplate.update("insert into users(id, name, password) values (?,?,?)",
                 user.getId(), user.getName(), user.getPassword());
     }
 
@@ -61,7 +63,7 @@ public class UserDAO {
     }
 
     public void deleteAll() throws SQLException {
-        this.jdbcContext.executeSql("delete from users");
+        this.jdbcTemplate.update("delete from users");
     }
 
     public int getCount() throws SQLException {
