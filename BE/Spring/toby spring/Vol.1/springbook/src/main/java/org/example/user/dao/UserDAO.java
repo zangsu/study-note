@@ -38,8 +38,19 @@ public class UserDAO {
                 user.getId(), user.getName(), user.getPassword());
     }
 
+    public User get(String id) throws SQLException {
+        return this.jdbcTemplate.queryForObject("select * from users where id = ?", new Object[]{id}, new RowMapper<User>() {
+            @Override
+            public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+                User user = new User();
+                user.setId(rs.getString("id"));
+                user.setPassword(rs.getString("password"));
+                user.setName(rs.getString("name"));
 
-
+                return user;
+            }
+        });
+    }
 
     public void deleteAll() throws SQLException {
         this.jdbcTemplate.update("delete from users");
