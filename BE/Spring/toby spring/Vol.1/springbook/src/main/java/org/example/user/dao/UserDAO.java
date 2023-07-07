@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import javax.sql.DataSource;
 import java.sql.*;
+import java.util.List;
 
 @NoArgsConstructor
 public class UserDAO {
@@ -58,5 +59,19 @@ public class UserDAO {
 
     public int getCount() throws SQLException {
         return this.jdbcTemplate.queryForObject("select count(*) from users", Integer.class);
+    }
+
+    public List<User> getAll(){
+        return this.jdbcTemplate.query("select * from users order by id", new RowMapper<User>() {
+            @Override
+            public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+                User user = new User();
+                user.setName(rs.getString("name"));
+                user.setPassword(rs.getString("password"));
+                user.setId(rs.getString("id"));
+
+                return user;
+            }
+        });
     }
 }
