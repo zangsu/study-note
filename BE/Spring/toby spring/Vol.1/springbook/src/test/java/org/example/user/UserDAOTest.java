@@ -20,6 +20,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -40,6 +41,7 @@ public class UserDAOTest {
         this.user1 = new User("toby", "이일민", "toby");
         this.user2 = new User("holyeye", "김영한", "holyeye");
         this.user3 = new User("zangsu", "장혁수", "zangsu");
+
     }
     @Test
     public void addAndGet() throws SQLException {
@@ -88,6 +90,44 @@ public class UserDAOTest {
                     dao.get("unknownId");
                 }
         );
+    }
 
+    @Test
+    public void getAll() throws SQLException {
+        dao.deleteAll();
+
+        dao.add(user1);
+
+        List<User> list = dao.getAll();
+        assertThat(list.size()).isEqualTo(1);
+        checkSameUser(user1, list.get(0));
+
+        dao.add(user2);
+        list = dao.getAll();
+        assertThat(list.size()).isEqualTo(2);
+        checkSameUser(user1, list.get(1));
+        checkSameUser(user2, list.get(0));
+
+
+        dao.add(user3);
+        list = dao.getAll();
+        assertThat(list.size()).isEqualTo(3);
+        checkSameUser(user1, list.get(1));
+        checkSameUser(user2, list.get(0));
+        checkSameUser(user3, list.get(2));
+    }
+
+    @Test
+    public void getAllException() throws SQLException {
+        dao.deleteAll();
+
+        List<User> list = dao.getAll();
+        assertThat(list.size()).isEqualTo(0);
+    }
+
+    private void checkSameUser(User user1, User user2) {
+        assertThat(user1.getId()).isEqualTo(user2.getId());
+        assertThat(user1.getName()).isEqualTo(user2.getName());
+        assertThat(user1.getPassword()).isEqualTo(user2.getPassword());
     }
 }
