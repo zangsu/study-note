@@ -125,6 +125,28 @@ public class UserDAOTest {
     }
 
     @Test
+    public void update() throws Exception{
+        //given
+        dao.deleteAll();
+
+        //when
+        dao.add(user1);
+
+        //then
+        user1.setName("문경덕");
+        user1.setPassword("moonGD");
+        user1.setLevel(Level.GOLD);
+        user1.setLogin(100);
+        user1.setRecommend(999);
+
+        dao.update(user1);
+
+        User getUser1 = dao.get(user1.getId());
+        checkSameUser(user1, getUser1);
+
+    }
+
+    @Test
     public void duplicatedKey() throws Exception{
         //given
         dao.deleteAll();
