@@ -1,6 +1,7 @@
 package org.example.user;
 
 import org.example.user.dao.UserDAO;
+import org.example.user.domain.Level;
 import org.example.user.domain.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -40,9 +41,9 @@ public class UserDAOTest {
     @BeforeEach
     public void setUp(){
 
-        this.user1 = new User("toby", "이일민", "toby");
-        this.user2 = new User("holyeye", "김영한", "holyeye");
-        this.user3 = new User("zangsu", "장혁수", "zangsu");
+        this.user1 = new User("toby", "이일민", "toby", Level.BASIC, 1, 0);
+        this.user2 = new User("holyeye", "김영한", "holyeye", Level.SILVER, 55, 10);
+        this.user3 = new User("zangsu", "장혁수", "zangsu", Level.GOLD, 100, 40);
 
     }
     @Test
@@ -163,5 +164,8 @@ public class UserDAOTest {
         assertThat(user1.getId()).isEqualTo(user2.getId());
         assertThat(user1.getName()).isEqualTo(user2.getName());
         assertThat(user1.getPassword()).isEqualTo(user2.getPassword());
+        assertThat(user1.getLevel()).isEqualTo(user2.getLevel());
+        assertThat(user1.getLogin()).isEqualTo(user2.getLogin());
+        assertThat(user1.getRecommend()).isEqualTo(user2.getRecommend());
     }
 }
