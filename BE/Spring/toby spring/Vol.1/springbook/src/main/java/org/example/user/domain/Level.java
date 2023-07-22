@@ -13,7 +13,7 @@ public enum Level {
         return value;
     }
 
-    public static Level valueof(int value) {
+    public static Level valueOf(int value) {
         switch (value) {
             case 1:
                 return BASIC;

@@ -152,7 +152,7 @@ public class UserDAOTest {
 
             org.assertj.core.api.Assertions.assertThat(
                     translator.translate(null, null, sqlException))
-                    .isEqualTo(DuplicateKeyException.class);
+                    .isInstanceOf(DuplicateKeyException.class);
         }
     }
 
