@@ -131,6 +131,7 @@ public class UserDAOTest {
 
         //when
         dao.add(user1);
+        dao.add(user2);
 
         //then
         user1.setName("문경덕");
@@ -143,7 +144,8 @@ public class UserDAOTest {
 
         User getUser1 = dao.get(user1.getId());
         checkSameUser(user1, getUser1);
-
+        User getUser2 = dao.get(user2.getId());
+        checkSameUser(user2, getUser2);
     }
 
     @Test
