@@ -7,10 +7,10 @@
         <property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost/testDB"/>
         <property name="username" value="root"/>
-        <property name="password" value="root"/>
+        <property name="password" value="111111"/>
     </bean>
 
-    <bean id="userDAO" class="org.example.user.dao.UserDAO">
+    <bean id="userDAO" class="org.example.user.dao.UserDAOJdbc">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 </beans>
