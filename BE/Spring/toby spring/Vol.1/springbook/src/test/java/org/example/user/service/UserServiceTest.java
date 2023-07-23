@@ -61,8 +61,27 @@ class UserServiceTest {
 
     }
 
+    @Test
+    public void add() throws Exception{
+        //given
+        userDAO.deleteAll();
+
+        User userWithoutLevel = new User("1toby", "이일민", "toby", null, 49, 0);
+        userService.add(userWithoutLevel);
+        User userWithLevel = new User("2swg0605", "손원준", "swg_pw", Level.GOLD, 50, 0);
+        userService.add(userWithLevel);
+
+        //when
+        User findUser1 = userDAO.get(userWithoutLevel.getId());
+        checkLevel(findUser1, Level.BASIC);
+
+        User findUser2 = userDAO.get(userWithLevel.getId());
+        checkLevel(findUser2, Level.GOLD);
+        //then
+    }
+
     private void checkLevel(User user, Level expectedLevel){
-        User userUpdate = userService.userDAO.get(user.getId());
+        User userUpdate = userDAO.get(user.getId());
         Assertions.assertThat(userUpdate.getLevel()).isEqualTo(expectedLevel);
     }
 }
